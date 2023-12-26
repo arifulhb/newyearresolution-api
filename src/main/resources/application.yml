@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://mysql:3306/nyrdb
+    username: myuser
+    password: secret
+    dbcp2:
+      validation-query: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        ddl-auto: none
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        id:
+          new_generator_mappings: true
+  liquibase:
+    change-log: classpath:database/migrations/migration-entrypoint.xml

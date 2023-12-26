@@ -1,10 +1,12 @@
 services:
   mysql:
-    image: 'mysql:latest'
+    image: 'mysql:8.1.0'
     environment:
-      - 'MYSQL_DATABASE=mydatabase'
+      - 'MYSQL_DATABASE=nyrdb'
       - 'MYSQL_PASSWORD=secret'
       - 'MYSQL_ROOT_PASSWORD=verysecret'
       - 'MYSQL_USER=myuser'
     ports:
-      - '3306'
+      - '33066:3306'
+    volumes:
+      - ./docker/storage/data:/var/lib/mysql
